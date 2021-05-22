@@ -8,17 +8,21 @@
 class DoublePendulum {
 	sf::RenderWindow& window;
 
-	static float g; // Gravitational acceleration
+	float g; // Gravitational acceleration
 	sf::RectangleShape pendulum1, pendulum2; // Shape of pendulums
-	float pendulumWidth; // Width of both pendulum
-	float pendulum1Length, pendulum2Length; // Length of pendulums
+	float pWidth; // Width of both pendulum
+	float p1Length, p2Length; // Length of pendulums
 	float xPos, yPos; // Suspension point
-	float angle1, angle2; //Angle of pendulums in deegrees
-	float angle1R, angle2R; //Angle of pendulums in radians
+
+	float m1, m2; //mass of pendulums
+	float p1Angle, p2Angle; //Angles of pendulums in deegrees
+	float p1AngleRad, p2AngleRad; //Angles of pendulums in radians
+
+	float p1AngularVelocity, p2AngularVelocity;
 
 public:
-	DoublePendulum(sf::RenderWindow& window, float pendulumWidth, float pendulum1Length, float pendulum2Length,
-		float xPos, float yPos, float angle1, float angle2);
+	DoublePendulum(sf::RenderWindow& window, float m1, float m2, float pendulumWidth, float pendulum1Length, float pendulum2Length,
+		float xPos, float yPos, float angle1, float angle2, float g);
 
 	void step(float dt); // Calculate pendulum properties based on time step;
 	void draw(); // Draw pendulum on window
