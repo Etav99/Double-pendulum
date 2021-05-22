@@ -1,8 +1,14 @@
 #include <SFML/graphics.hpp>
+#include "DoublePendulum.h"
+#define RES_X 800
+#define RES_Y 600
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "Double pendulum");
+    sf::RenderWindow window(sf::VideoMode(RES_X, RES_Y), "Double pendulum");
+
+    DoublePendulum p(window, 5, 100, 50, RES_X/2, RES_Y/2, 20, 30);
+
 
     while (window.isOpen())
     {
@@ -14,6 +20,7 @@ int main()
         }
 
         window.clear();
+        p.draw();
         window.display();
     }
 
